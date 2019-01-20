@@ -1,0 +1,82 @@
+\documentclass[12pt, a4paper]{article}
+
+\RequirePackage[russian]{babel}
+\RequirePackage{amssymb, amsmath, amscd, euscript, ulem, tikz}  
+\usetikzlibrary{graphs}
+\RequirePackage[utf8]{inputenc}
+\frenchspacing
+
+
+\begin{document}
+
+\section{Разработка грамматики}
+
+$ S \rightarrow TI(A); $ \\
+$ T \rightarrow IM $ \\
+$ A \rightarrow \varepsilon $ \\
+$ A \rightarrow TIA'$ \\
+$ A' \rightarrow \varepsilon $ \\
+$ A' \rightarrow \;,TIA' $ \\
+$ M \rightarrow \varepsilon $ \\
+$ M \rightarrow \& $ \\
+$ M \rightarrow {}^*M $ \\
+
+\begin{tabular}[t]{|p{7em}|p{16em}|}
+\hline
+	\bf{Нетерминал} & \bf{Описание} \\
+\hline
+	$ S $ & Объявление функции\\
+\hline
+	$ T $ & Тип \\
+\hline
+	$ A $ & Аргументы функции \\
+\hline
+	$ A' $ & Дополнительные аргументы \\
+\hline
+	$ M $ & Модификатор типа \\
+\hline
+\end{tabular}
+\\
+\section{Построение лексического анализатора}
+\begin{tabular}[t]{|p{7em}|p{8em}|p{7em}|}
+\hline
+	\bf{Терминал} & \bf{Описание} & \bf{Токен} \\
+\hline
+	$ I $ & Идентификатор & \tt{IDENT} \\
+\hline
+	$ \$ $ & Конец файла & \tt{EOF} \\
+\hline
+	$ {}^* $ &  & \tt{PTR} \\
+\hline
+	$ ( $ &  & \tt{LBRACKET} \\
+\hline
+	$ ) $ &  & \tt{RBRACKET} \\
+\hline
+	$ ; $ &  & \tt{SEMICOLON} \\
+\hline
+	$ , $ &  & \tt{COMMA} \\
+\hline
+	$ \& $ &  & \tt{AMPERSAND} \\
+\hline
+\end{tabular}
+\\
+\section{Построение синтаксического анализатора}
+\begin{tabular}[t]{|p{7em}|p{4em}|p{5em}|}
+\hline
+	\bf{Нетерминал} & FIRST & FOLLOW \\
+\hline
+	$ S $ & $ I $  & $ \$ $\\
+\hline
+	$ T $ & $ I $ & $ I $ \\
+\hline
+	$ A $ & $ \varepsilon$, $ I $ & $ ) $ \\
+\hline
+	$ A' $ & $ \varepsilon$, $,$ & $ ) $ \\
+\hline
+	$ M $ & $ \varepsilon$, $\&$, $*$ & $ I $ \\
+\hline
+\end{tabular}
+
+
+
+\end{document}

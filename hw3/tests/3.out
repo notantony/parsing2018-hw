@@ -1,0 +1,8 @@
+void max(int A, int B) {
+    if ((A > B)) {
+        std::cout << A;
+    }
+    else {
+        std::cout << B;
+    }
+}

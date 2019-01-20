@@ -1,0 +1,8 @@
+void abs(int a, int b) {
+    if ((0 >= (a - b))) {
+        std::cout << (a - b);
+    }
+    else {
+        std::cout << (b - a);
+    }
+}

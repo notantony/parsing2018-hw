@@ -1,0 +1,6 @@
+f a b =
+    while != 0 b
+        (= a % a b
+        = t a
+        = a b
+        = b t)

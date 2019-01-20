@@ -1,0 +1,13 @@
+void f(int a, int b, int c) {
+    if ((((a >= b)) && ((a >= c)))) {
+        std::cout << a;
+}
+else {
+if ((((b >= a)) && ((b >= c)))) {
+std::cout << b;
+}
+else {
+std::cout << c;
+}
+}
+}

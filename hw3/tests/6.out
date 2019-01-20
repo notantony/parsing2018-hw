@@ -1,0 +1,6 @@
+void ff(int aa, int bb, int cc) {
+    aa = 32;
+    bb = (aa - 66);
+    if ((a > b))
+        std::cout << 32;
+}

@@ -1,0 +1,4 @@
+    void spaces ( s *
+* * ss  ,  e*
+  *
+** eee );
