@@ -1,8 +1,0 @@
-f a b c =
-if && (>= a b) (>= a c)
-    (print a)
-    (
-        if && (>= b a) (>= b c)
-            (print b)
-            (print c)
-    )

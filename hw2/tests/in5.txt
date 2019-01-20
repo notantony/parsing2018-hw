@@ -1,8 +1,0 @@
-  __node_ * *   * sp_123l_ay
-           (__node * * * *      t0_ptr,
-        type1 qw3,
-                            t2 * a,
-            typ3 b
-           )
-           ;
-

@@ -1,1 +1,0 @@
-my_type** af(int a, size_t *sz, );

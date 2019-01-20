@@ -1,1 +1,0 @@
-void gcd(int 1number, int 2nuumber);

@@ -1,4 +1,0 @@
-abs a b =
-if >= 0 - a b
-    print - a b
-    print - b a

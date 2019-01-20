@@ -1,1 +1,0 @@
-v©oid ©int f(int x); 
