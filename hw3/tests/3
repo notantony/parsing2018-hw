@@ -1,0 +1,1 @@
+max A B = if > A B print A print B

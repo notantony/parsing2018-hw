@@ -1,0 +1,4 @@
+void mean(int l, int r) {
+    int m;
+    m = ((l + r) / 2);
+}

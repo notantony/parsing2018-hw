@@ -1,0 +1,4 @@
+void f() {
+    if (((true || false) && false))
+        std::cout << 42;
+}
