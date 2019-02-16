@@ -1,0 +1,24 @@
+S -> N V ass ST STS eof
+STS -> ST STS
+STS -> EPSILON
+N -> id
+V -> IDS
+IDS -> id IDS
+IDS -> EPSILON
+P -> ST STS
+ST -> IFC
+ST -> WC
+ST -> ASS
+ST -> lp P rp
+ST -> ACT
+IFC -> if EXPR ST IFP
+IFP -> ST
+IFP -> EPSILON
+WC -> while EXPR ST
+ASS -> ass id EXPR
+EXPR -> const
+EXPR -> op2 EXPR EXPR
+EXPR -> id
+EXPR -> lp EXPR rp
+ACT -> consumer EXPR
+

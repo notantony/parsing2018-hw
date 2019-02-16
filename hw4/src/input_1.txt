@@ -1,0 +1,40 @@
+
+NUMBER       : "\d*" ;
+OP           : "[+-]" ;
+
+
+
+{
+    def get25():
+        return 25
+
+    const42 = 42
+
+    def printHello():
+        print("Hello, World")
+}
+
+start : num operation num ->
+    .__before__ = {
+        print("parsing started")
+    }
+
+    .val = {
+        $2.fun($1.val, $3.val)
+    }
+
+    .__after__  = {
+        print("parsing ended")
+        print($0.val)
+    }
+;
+
+
+operation : OP ->
+    .__before__ = {
+        printHello()
+    }
+    .op = {
+        lambda x, y: x + y
+    }
+;
