@@ -23,9 +23,7 @@ AT                  : '@' (ALPHA | DIGIT | '_')+;
 
 
 
-start               : lexingRule* init? parsingRule* ;
-
-init                : CODE ;
+start               : lexingRule* parsingRule* ;
 
 lexingRule          : CAPS_IDENT COLON REGEXP SEMICOLON ;
 
