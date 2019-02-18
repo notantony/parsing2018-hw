@@ -1,4 +1,4 @@
-from MyVisitor import MyVisitor
+from mygen.MyVisitor import MyVisitor
 
 class Visitor3(MyVisitor):
     def __init__(self, output):
@@ -6,14 +6,9 @@ class Visitor3(MyVisitor):
         self.tabs = 0
         self.inputVars = set()
         self.localVars = set()
-        self.extra = 0
 
-    def printTabs(self):
-        for i in range(self.tabs):
-            self.output.write("    ")
-
-    def printExtra(self):
-        for i in range(self.extra):
+    def printTabs(self, less = 0):
+        for i in range(self.tabs + less):
             self.output.write("    ")
 
     def printEndl(self):
@@ -76,19 +71,19 @@ class Visitor3(MyVisitor):
         self.output.write(c.COND)
         self.output.write("\n")
         if not hasattr(c.stat, "sts"):
-            self.extra += 1
-            self.printExtra()
+            self.tabs += 1
         c.stat.visit(self)
-        self.extra -= 1
+        if not hasattr(c.stat, "sts"):
+            self.tabs -= 1
         if c.post.post is not None:
             self.printTabs()
             self.output.write("else ")
             self.output.write("\n")
             if not hasattr(c.post.post, "sts"):
-                self.extra += 1
-                self.printExtra()
+                self.tabs += 1
             c.post.post.visit(self)
-            self.extra -= 1
+            if not hasattr(c.post.post, "sts"):
+                self.tabs -= 1
 
     def visitifPost(self, c):
         self.visitChildren(c)
@@ -98,10 +93,10 @@ class Visitor3(MyVisitor):
         self.output.write(c.COND)
         self.output.write("\n")
         if not hasattr(c.stat, "sts"):
-            self.extra += 1
-            self.printExtra()
+            self.tabs += 1
         c.stat.visit(self)
-        self.extra -= 1
+        if not hasattr(c.stat, "sts"):
+            self.tabs -= 1
 
     def visitassignment(self, c):
         self.printTabs()

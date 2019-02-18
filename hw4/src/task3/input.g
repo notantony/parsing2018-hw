@@ -102,7 +102,7 @@ expr                    : CONST@c
     if hasattr(@0, "val"):
         @0.STR = str(@0.val)
     if not hasattr(@0, "STR"):
-        @0.STR = (@a1.STR + " " + @op + " " + @a2.STR)
+        @0.STR = ("(" + @a1.STR + " " + @op + " " + @a2.STR + ")")
 };
 
 action                  : CONSUMER1@C expr@expr
